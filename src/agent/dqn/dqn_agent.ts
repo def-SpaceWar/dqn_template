@@ -20,8 +20,8 @@ export class DQNAgent {
         public gamma = 0.99,
         public lr = 0.001,
         public actionSize = 4,
-        public batchSize = 8,
-        public maxMemorySize = 9
+        public batchSize = 2,
+        public maxMemorySize = 8
     ) { }
 
     updateExploreProb(): void {
@@ -72,10 +72,14 @@ export class DQNAgent {
             const qToArray = await (currentQ.array() as Promise<number[][]>);
             qToArray[0].map((v, idx) => v + nextQToArray[0][idx]);
             qToArray[0][experience.action] = target;
-            await this.model.fit(experience.next, tensor(qToArray), {
-                epochs: 1,
-                verbose: 0
-            });
+            try {
+                await this.model.fit(experience.next, tensor(qToArray), {
+                    epochs: 1,
+                    verbose: 0
+                });
+            } catch (e) {
+                e;
+            }
         }
     }
 

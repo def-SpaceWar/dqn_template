@@ -6,18 +6,21 @@ export const makeModel = (stateSize: number, actionSize: number): Sequential => 
             layers.dense({
                 units: 16,
                 inputShape: [stateSize],
-                activation: "relu"
+                activation: 'relu'
             }),
             layers.dense({
                 units: actionSize,
-                activation: "linear"
+                activation: 'linear'
             })
         ]
     });
+
     model.compile({
-        optimizer: "adam",
-        loss: "meanSquaredError"
+        optimizer: 'adam',
+        loss: 'meanSquaredError'
     });
+
     model.summary();
+
     return model;
 };
