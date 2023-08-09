@@ -20,8 +20,8 @@ export class DQNAgent {
         public gamma = 0.99,
         public lr = 0.001,
         public actionSize = 4,
-        public batchSize = 2,
-        public maxMemorySize = 8
+        public batchSize = 1,
+        public maxMemorySize = 16
     ) { }
 
     updateExploreProb(): void {

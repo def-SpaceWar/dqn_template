@@ -1,4 +1,4 @@
-- Fix the reward function in `main.ts`
+- ( ) Fix the reward function in `main.ts`
 - ( ) Add rounds (they should save the round number)
 -- ( ) Use the round number to modify agent's expProb value
 - ( ) Add unique localStorage saving and loading. (each save has a unique id, and can be saved and loaded by it)
